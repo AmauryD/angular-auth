@@ -15,7 +15,7 @@ export class RegisterService {
     @Inject(HttpClient) private http: HttpClient,
   ) { }
 
-  public login(auth: RegisterArgs) {
+  public register(auth: RegisterArgs) {
     this.http.post('http://localhost:3000/register', auth).subscribe((res) => {
       console.log(res);
     });

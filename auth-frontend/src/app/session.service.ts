@@ -12,7 +12,7 @@ interface UserProfile {
   providedIn: 'root'
 })
 export class SessionService {
-  private profile?: UserProfile;
+  public profile?: UserProfile;
 
   constructor(
     private http: HttpClient,
@@ -33,14 +33,14 @@ export class SessionService {
       return  of(false);
     }
 
-    const observer = this.http.get<UserProfile>('http://localhost:3000/profile', {
+    const observer = this.http.get<{ user: UserProfile}>('http://localhost:3000/profile', {
       headers: {
         Authorization: `Bearer ${this.accessToken}`
       }
     });
 
     observer.subscribe((profile) => {
-      this.profile = profile;
+      this.profile = profile['user'];
     });
 
     return observer;

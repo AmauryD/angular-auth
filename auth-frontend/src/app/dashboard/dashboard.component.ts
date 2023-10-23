@@ -17,4 +17,6 @@ export class DashboardComponent {
     this.sessionService.logout();
     this.router.navigate(['/login']);
   }
+
+  log(val: unknown) { console.log(val); }
 }

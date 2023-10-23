@@ -22,7 +22,7 @@ export class RegisterComponent {
 
   onSubmit() {
     if (this.registerForm?.valid) {
-      this.register.login(this.registerForm.value);
+      this.register.register(this.registerForm.value);
     }
   }
 }
