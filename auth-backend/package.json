@@ -1,0 +1,55 @@
+{
+  "name": "node-typescript-boilerplate",
+  "version": "0.0.0",
+  "description": "Minimalistic boilerplate to quick-start Node.js development in TypeScript.",
+  "type": "module",
+  "engines": {
+    "node": ">= 18.12 <19"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.1",
+    "@types/express": "^4.17.20",
+    "@types/jest": "~29.5",
+    "@types/node": "~18",
+    "@typescript-eslint/eslint-plugin": "~6.2",
+    "@typescript-eslint/parser": "~6.2",
+    "eslint": "~8.46",
+    "eslint-config-prettier": "~9.0",
+    "eslint-plugin-jest": "~27.2",
+    "jest": "~29.6",
+    "prettier": "~3.0",
+    "rimraf": "~5.0",
+    "ts-api-utils": "~1.0",
+    "ts-jest": "~29.1",
+    "ts-node": "^10.9.1",
+    "typescript": "~5.1"
+  },
+  "scripts": {
+    "start": "node build/src/main.js",
+    "dev": "node --watch --loader ts-node/esm src/index.ts",
+    "clean": "rimraf coverage build tmp",
+    "prebuild": "npm run lint",
+    "build": "tsc -p tsconfig.json",
+    "build:watch": "tsc -w -p tsconfig.json",
+    "build:release": "npm run clean && tsc -p tsconfig.release.json",
+    "lint": "eslint . --ext .ts --ext .mts",
+    "test": "jest --coverage",
+    "prettier": "prettier --config .prettierrc --write .",
+    "test:watch": "jest --watch"
+  },
+  "author": "Jakub Synowiec <jsynowiec@users.noreply.github.com>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@types/jsonwebtoken": "^9.0.4",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.6.2",
+    "tslib": "~2.6"
+  },
+  "volta": {
+    "node": "18.12.1"
+  }
+}
